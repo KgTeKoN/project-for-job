@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/KgTeKoN/project-for-job/issues"
   },
-  "homepage": "https://github.com/KgTeKoN/project-for-job#readme"
+  "homepage": "https://github.com/KgTeKoN/project-for-job#readme",
+  "devDependencies": {
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "2.7.1"
+  }
 }
