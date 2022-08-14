@@ -1,6 +1,6 @@
 const express = require('express');
 const routes = express.Router();
-const RAM = require('/src/RAM/route.ram');
+const RAM = require('./src/RAM/route.ram');
 
 routes.use(RAM);
 

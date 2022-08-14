@@ -1,6 +1,6 @@
 const { handlerRAM } = require('./handler.ram');
 
-const controllerRAM = async () => {
+const controllerRAM = async (req, res) => {
   const freeMemory = await handlerRAM();
   res.send(freeMemory);
   res.end();

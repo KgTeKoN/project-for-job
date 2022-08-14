@@ -1,3 +1,3 @@
 const port = 5000;
 
-module.exports = { poert }
+module.exports = { port }
