@@ -1,7 +1,7 @@
 const os = require('os');
 
 const handlerRAM = async () => {
-  let freeMemory = await os.freemem();
+  const freeMemory = os.freemem();
   return { freeMemory }
 }
 
