@@ -1,0 +1,40 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "My project for job",
+    "description": "Work project for a junior position\n"
+  },
+  "host": "localhost:5000",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "RAM",
+      "description": "Returning free memory"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/v1/health": {
+      "get": {
+        "tags": [
+          "RAM"
+        ],
+        "summary": "Get free memory",
+        "responses": {
+          "200": {
+            "description": "Return object with property freeMemory"
+          }
+        }
+      }
+    }
+  }
+}
