@@ -21,6 +21,10 @@ describe('RAM', () => {
         expect(result.hasOwnProperty('freeMemory')).toEqual(true)
     })
 
+    test('property freeMemory should be Number', () => {
+        expect(typeof (result.freeMemory)).toEqual('number')
+    })
+
     test('free memory should be grater than 0', () => {
         expect(result.freeMemory).toBeGreaterThan(0)
     })
