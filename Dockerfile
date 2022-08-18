@@ -1,13 +1,28 @@
-FROM node:16.14.0
+# --------------> The build image
+FROM node:latest AS build
 
-WORKDIR /src/app
+WORKDIR /usr/src/app
 
-COPY package.json ./
+COPY package*.json /usr/src/app/
 
-RUN npm ci
+RUN --mount=type=secret,mode=0644,id=npmrc,target=/usr/src/app/.npmrc npm ci --only=production
 
-COPY . .
+# --------------> The production image
 
-EXPOSE 5000
+FROM node:lts-alpine
 
-CMD ["node", "main.js"]
+RUN apk add dumb-init
+
+ENV NODE_ENV production
+
+USER node
+
+WORKDIR /usr/src/app
+
+RUN npm ci --only=production
+
+COPY --chown=node:node --from=build /usr/src/app/node_modules /usr/src/app/node_modules
+
+COPY --chown=node:node . /usr/src/app0
+
+CMD ["dumb-init", "node", "main.js"]
