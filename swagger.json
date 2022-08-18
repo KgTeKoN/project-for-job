@@ -31,8 +31,20 @@
         "summary": "Get free memory",
         "responses": {
           "200": {
-            "description": "Return object with property freeMemory"
+            "description": "Return object with property freeMemory",
+            "schema": {
+              "$ref": "#/definitions/RAM"
+            }
           }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "RAM": {
+      "properties": {
+        "freeMemory": {
+          "type": "integer"
         }
       }
     }
