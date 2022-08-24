@@ -19,8 +19,6 @@ USER node
 
 WORKDIR /usr/src/app
 
-RUN npm ci --only=production
-
 COPY --chown=node:node --from=build /usr/src/app/node_modules /usr/src/app/node_modules
 
 COPY --chown=node:node . /usr/src/app0
