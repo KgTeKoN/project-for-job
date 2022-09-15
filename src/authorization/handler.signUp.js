@@ -1,10 +1,13 @@
 const { encryptionPassword } = require('./cipher');
 const { hashPassword } = require('./hash.js');
+const PersonController = require('../PersonCRUD/person.controller')
 
-const handlerSignUp = async (name, email, password) => {
+const handlerSignUp = async (body) => {
+    const {name, email, password} = body;
     const hash = await hashPassword(password);
     const encryption = await encryptionPassword(hash);
-    console.log(encryption)
+    const result = await PersonController.createPerson(name, email, encryption);
+    return result
 }
 
 module.exports = { handlerSignUp }

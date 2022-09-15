@@ -1,10 +1,9 @@
 const { handlerSignUp } = require('./handler.signUp');
 
-const createUser = async (req, res) => {
-    const { name, email, password } = req.body;
-    const result = await handlerSignUp(name, email, password)
-    res.send(result);
+const controllerSignUp = async (req, res) => {
+    const result = await handlerSignUp(req.body)
+    res.status(201).json(result);
     res.end();
 }
 
-module.exports = { createUser }
+module.exports = { controllerSignUp }
