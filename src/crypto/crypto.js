@@ -8,7 +8,7 @@ const encryptData = async (data) => {
     const iv = crypto.randomBytes(16).toString('hex').slice(0, 16);
     const cipher = crypto.createCipheriv(cipherAlgorithm, key, iv);
 
-    let encrypted = cipher.update(String(password), 'utf8', 'hex')
+    let encrypted = cipher.update(String(data), 'utf8', 'hex')
     encrypted += cipher.final('hex');
 
     return encrypted

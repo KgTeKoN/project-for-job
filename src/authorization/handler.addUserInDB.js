@@ -1,4 +1,4 @@
-const { createHash, encryptData } = require('./crypto');
+const { createHash, encryptData } = require('../crypto/crypto');
 const PersonController = require('../PersonCRUD/person.controller')
 
 const addUserInDB = async (data) => {

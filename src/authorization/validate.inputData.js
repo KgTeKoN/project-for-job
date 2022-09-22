@@ -1,8 +1,8 @@
-const { signupSchema } = require('./validate.schema.js');
+const { signUpSchema } = require('./validate.schema.js');
 
-const bodyValidator = async (req, res, next) => {
+const signUpValidator = async (req, res, next) => {
     try {
-        await signupSchema.validateAsync(req.body);
+        await signUpSchema.validateAsync(req.body);
         return next();
     } catch (e) {
         const result = e.details[0].message;
@@ -11,4 +11,4 @@ const bodyValidator = async (req, res, next) => {
     }
 };
 
-module.exports = { bodyValidator };
+module.exports = { signUpValidator };
