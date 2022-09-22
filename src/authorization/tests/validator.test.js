@@ -1,4 +1,4 @@
-const { signupSchema } = require('../validate.schema')
+const { signUpSchema } = require('../validate.schema')
 
 describe('validate schema registration', () => {
     let email1 = 'hasherama8@gmail.com';
@@ -18,7 +18,7 @@ describe('validate schema registration', () => {
 
     test('validate correct data', async () => {
         const obj1 = { email: email1, name: name1, password: password1 };
-        const result = await signupSchema.validateAsync(obj1);
+        const result = await signUpSchema.validateAsync(obj1);
         expect(result).toEqual(obj1)
     })
 
@@ -26,7 +26,7 @@ describe('validate schema registration', () => {
         const obj2 = { email: email2, name: name1, password: password1 };
         let result;
         try {
-            result = await signupSchema.validateAsync(obj2);
+            result = await signUpSchema.validateAsync(obj2);
         } catch (e) {
             result = e.message;
         }
@@ -37,7 +37,7 @@ describe('validate schema registration', () => {
         const obj3 = { email: email3, name: name1, password: password1 };
         let result;
         try{
-            result = await signupSchema.validateAsync(obj3);
+            result = await signUpSchema.validateAsync(obj3);
         } catch (e) {
             result = e.message;
         }
@@ -48,7 +48,7 @@ describe('validate schema registration', () => {
         const obj4 = { email: email4, name: name1, password: password1 };
         let result;
         try{
-            result = await signupSchema.validateAsync(obj4);
+            result = await signUpSchema.validateAsync(obj4);
         } catch (e) {
             result = e.message;
         }
@@ -59,7 +59,7 @@ describe('validate schema registration', () => {
         const obj5 = { email: email5, name: name1, password: password1 };
         let result;
         try{
-            result = await signupSchema.validateAsync(obj5);
+            result = await signUpSchema.validateAsync(obj5);
         } catch (e) {
             result = e.message;
         }
@@ -71,7 +71,7 @@ describe('validate schema registration', () => {
         const obj6 = { email: email1, name: name2, password: password1 };
         let result;
         try{
-            result = await signupSchema.validateAsync(obj6);
+            result = await signUpSchema.validateAsync(obj6);
         } catch (e) {
             result = e.message;
         }
@@ -82,7 +82,7 @@ describe('validate schema registration', () => {
         const obj7 = { email: email1, name: name3, password: password1 };
         let result;
         try{
-            result = await signupSchema.validateAsync(obj7);
+            result = await signUpSchema.validateAsync(obj7);
         } catch (e) {
             result = e.message;
         }
@@ -93,7 +93,7 @@ describe('validate schema registration', () => {
         const obj8 = { email: email1, name: name4, password: password1 };
         let result;
         try{
-            result = await signupSchema.validateAsync(obj8);
+            result = await signUpSchema.validateAsync(obj8);
         } catch (e) {
             result = e.message;
         }
@@ -104,7 +104,7 @@ describe('validate schema registration', () => {
         const obj9 = { email: email1, name: name5, password: password1 };
         let result;
         try{
-            result = await signupSchema.validateAsync(obj9);
+            result = await signUpSchema.validateAsync(obj9);
         } catch (e) {
             result = e.message;
         }
@@ -115,7 +115,7 @@ describe('validate schema registration', () => {
         const obj10 = { email: email1, name: name1, password: password2 };
         let result;
         try{
-            result = await signupSchema.validateAsync(obj10);
+            result = await signUpSchema.validateAsync(obj10);
         } catch (e) {
             result = e.message;
         }
@@ -126,7 +126,7 @@ describe('validate schema registration', () => {
         const obj11 = { email: email1, name: name1, password: password3 };
         let result;
         try{
-            result = await signupSchema.validateAsync(obj11);
+            result = await signUpSchema.validateAsync(obj11);
         } catch (e) {
             result = e.message;
         }
@@ -137,7 +137,7 @@ describe('validate schema registration', () => {
         const obj12 = { email: email1, name: name1, password: password4 };
         let result;
         try{
-            result = await signupSchema.validateAsync(obj12);
+            result = await signUpSchema.validateAsync(obj12);
         } catch (e) {
             result = e.message;
         }

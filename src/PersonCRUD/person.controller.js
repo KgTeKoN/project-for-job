@@ -6,7 +6,7 @@ class PersonController {
             const result = await personDAO.createPerson(name, email, password)
             return result
         } catch (err) {
-            console.error(err);
+            console.log(err.message);
             return err.message;
         }
     }
