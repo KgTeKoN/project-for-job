@@ -1,6 +1,6 @@
 const express = require('express');
 const routes = express.Router();
-const { controllerSignUp } = require('./controller.signUp');
+const { controllerSignUp } = require('./controllerSignUp');
 const { bodyValidator } = require('./validate.inputData');
 const bodyParser = require('body-parser');
 const jsonParser = bodyParser.json();
