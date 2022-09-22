@@ -1,14 +1,16 @@
-require('dotenv').config();
+const { PG_CONNECTION_HOST,
+    PG_CONNECTION_PORT, PG_CONNECTION_USER, PG_CONNECTION_PASSWORD,
+    PG_CONNECTION_DB } = require('../../config')
 
 module.exports = {
     development: {
         client: 'pg',
         connection: {
-            host: process.env.PG_CONNECTION_HOST || 'localhost',
-            port: process.env.PG_CONNECTION_PORT || 5080,
-            user: process.env.PG_CONNECTION_USER || 'postgres',
-            password: process.env.PG_CONNECTION_PASSWORD || 'example',
-            database: process.env.PG_CONNECTION_DB || 'postgres_db_project_for_job'
+            host: PG_CONNECTION_HOST,
+            port: PG_CONNECTION_PORT,
+            user: PG_CONNECTION_USER,
+            password: PG_CONNECTION_PASSWORD,
+            database: PG_CONNECTION_DB
         },
         pool: {
             min: 0,

@@ -1,11 +1,10 @@
 const crypto = require('crypto');
-const { cipherAlgorithm } = require('../../config');
-require('dotenv').config();
+const { cipherAlgorithm, secret } = require('../../config');
 
-const key = Buffer.from(process.env.SECRET_KEY, 'hex');
+const key = Buffer.from(secret, 'hex');
 
 const encryptionPassword = async (password) => {
-    const iv = crypto.randomBytes(16).toString('hex').slice(0, 16);;
+    const iv = crypto.randomBytes(16).toString('hex').slice(0, 16);
     const cipher = crypto.createCipheriv(cipherAlgorithm, key, iv);
 
     let encrypted = cipher.update(String(password), 'utf8', 'hex')
@@ -13,5 +12,7 @@ const encryptionPassword = async (password) => {
 
     return encrypted
 }
+
+encryptionPassword('ads').then(data => console.log(data))
 
 module.exports = { encryptionPassword }
