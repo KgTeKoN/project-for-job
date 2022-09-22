@@ -1,9 +1,10 @@
 const crypto = require('crypto');
 const { cipherAlgorithm, secret } = require('../../config');
+const argon2 = require('argon2')
 
 const key = Buffer.from(secret, 'hex');
 
-const encryptionPassword = async (password) => {
+const encryptData = async (data) => {
     const iv = crypto.randomBytes(16).toString('hex').slice(0, 16);
     const cipher = crypto.createCipheriv(cipherAlgorithm, key, iv);
 
@@ -13,6 +14,13 @@ const encryptionPassword = async (password) => {
     return encrypted
 }
 
-encryptionPassword('ads').then(data => console.log(data))
+const createHash = async (data) => {
+    try {
+        const hash = await argon2.hash(data)
+        return hash;
+    } catch (e) {
+        return e.message
+    }
+}
 
-module.exports = { encryptionPassword }
+module.exports = { encryptData, createHash }

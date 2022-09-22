@@ -1,5 +1,5 @@
-const { encryptionPassword } = require('../cipher')
-const { hashPassword } = require('../hash')
+const { encryptionPassword } = require('../../crypto/cipher')
+const { hashPassword } = require('../../crypto/hash')
 
 describe('cipher+hash', () => {
     const secret = 'password';
