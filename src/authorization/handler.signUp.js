@@ -1,5 +1,5 @@
-const { encryptionPassword } = require('./cipher');
-const { hashPassword } = require('./hash.js');
+const { encryptionPassword } = require('../crypto/cipher');
+const { hashPassword } = require('../crypto/hash.js');
 const PersonController = require('../PersonCRUD/person.controller')
 
 const handlerSignUp = async (body) => {

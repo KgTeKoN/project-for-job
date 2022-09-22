@@ -11,15 +11,15 @@ services:
       POSTGRES_PASSWORD: example
       POSTGRES_DB: postgres_db_project_for_job
     restart: always
-#  app:
-#    image: server
-#    container_name: application
-#    ports:
-#      - 5000:5000
-#    environment:
-#      POSTGRES_HOST: db
-#    restart: always
-#    links:
-#      - db
+  app:
+    image: server
+    container_name: application
+    ports:
+      - 5000:5000
+    environment:
+      POSTGRES_HOST: db
+    restart: always
+    links:
+      - db
 volumes:
   psql:

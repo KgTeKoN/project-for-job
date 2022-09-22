@@ -1,4 +1,4 @@
-const { signupSchema } = require('./schema.js');
+const { signupSchema } = require('./validate.schema.js');
 
 const bodyValidator = async (req, res, next) => {
     try {
