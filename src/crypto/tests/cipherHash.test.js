@@ -3,18 +3,16 @@ const { hashPassword } = require('../../crypto/hash')
 
 describe('cipher+hash', () => {
     const secret = 'password';
-    let cipher;
-    let hash
 
-    beforeAll(async () => {
-        cipher = await encryptionPassword(secret);
-        hash = await hashPassword(secret);
-    })
-
-    test('Password must be different from the incoming password', () => {
+    test('Password must be different from the incoming password', async () => {
+        const cipher = await encryptionPassword(secret);
         expect(cipher).not.toBe(secret);
         expect(cipher.length).toBeGreaterThan(30);
+    })
+
+    test('Password must be different from the incoming password', async () => {
+        const hash = await hashPassword(secret);
         expect(hash).not.toBe(secret);
-        expect(cipher.length).toBeGreaterThan(30);
+        expect(hash.length).toBeGreaterThan(30);
     })
 })
