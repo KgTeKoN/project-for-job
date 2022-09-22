@@ -1,7 +1,7 @@
-const { handlerSignUp } = require('./handler.signUp');
+const { addUserInDB } = require('./handler.addUserInDB');
 
 const signUp = async (req, res) => {
-    const result = await handlerSignUp(req.body)
+    const result = await addUserInDB(req.body)
     res.status(201).json(result);
     res.end();
 }
