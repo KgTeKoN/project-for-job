@@ -47,7 +47,7 @@ describe('test handler', () => {
         expect(encryptData).toBeCalledTimes(1);
     })
 
-    test('input PersonController data must be object', () => {
+    test('input PersonController data must be data.name, data.email, testPasswordHash', () => {
         expect(PersonController.createPerson).toBeCalledWith(
             data.name,
             data.email,
