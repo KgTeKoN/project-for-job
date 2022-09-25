@@ -15,12 +15,8 @@ const encryptData = async (data) => {
 }
 
 const createHash = async (data) => {
-    try {
-        const hash = await argon2.hash(data)
-        return hash;
-    } catch (e) {
-        return e.message
-    }
+    const hash = await argon2.hash(data)
+    return hash;
 }
 
 module.exports = { encryptData, createHash }

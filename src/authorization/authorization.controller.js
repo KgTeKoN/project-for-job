@@ -1,4 +1,4 @@
-const { addUserInDB } = require('./handler.addUserInDB');
+const { addUserInDB } = require('./authorization.handler');
 
 const signUp = async (req, res) => {
     const result = await addUserInDB(req.body)

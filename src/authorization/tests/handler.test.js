@@ -1,5 +1,5 @@
 const { createHash, encryptData } = require('../../crypto/crypto');
-const { addUserInDB } = require('../handler.addUserInDB')
+const { addUserInDB } = require('../authorization.handler')
 const PersonController = require('../../PersonCRUD/person.controller')
 
 const data = {
@@ -31,11 +31,11 @@ jest.mock('../../PersonCRUD/person.controller', () => {
     };
 });
 
-beforeAll(async () => {
-    await addUserInDB(data)
-})
-
 describe('test handler', () => {
+
+    (async () => {
+        await addUserInDB(data);
+    })();
 
     test('input createHash data must be as data.password', () => {
         expect(createHash).toBeCalledWith(data.password);
