@@ -1,7 +1,7 @@
 const { createHash, encryptData } = require('../crypto/crypto');
 const PersonController = require('../PersonCRUD/person.controller')
 
-const addUserInDB = async (data) => {
+const signUp = async (data) => {
     const { name, email, password } = data;
     const hash = await createHash(password);
     const encryptedPassword = await encryptData(hash);
@@ -10,7 +10,7 @@ const addUserInDB = async (data) => {
     return result
 }
 
-module.exports = { addUserInDB }
+module.exports = { signUp }
 
 
 

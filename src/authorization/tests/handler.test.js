@@ -1,14 +1,9 @@
 const { createHash, encryptData } = require('../../crypto/crypto');
-const { addUserInDB } = require('../authorization.handler')
+const { signUp } = require('../authorization.handler')
 const PersonController = require('../../PersonCRUD/person.controller')
 
-const data = {
-    name: "Andriy",
-    email: "hasherama8@gmail.com",
-    password: "password"
-}
 const testPasswordCipher = '123456';
-const testPasswordHash = 'qwerty'
+const testPasswordHash = 'qwerty';
 
 jest.mock('../../crypto/crypto', () => {
     const originalModule = jest.requireActual('../../crypto/crypto');
@@ -33,21 +28,18 @@ jest.mock('../../PersonCRUD/person.controller', () => {
 
 describe('test handler', () => {
 
-    (async () => {
-        await addUserInDB(data);
-    })();
+    test('input createPerson data must be as data.name, data.email, testPasswordHash', async () => {
+        const data = {
+            name: "Andriy",
+            email: "hasherama8@gmail.com",
+            password: "password"
+        }
+        await signUp(data);
 
-    test('input createHash data must be as data.password', () => {
         expect(createHash).toBeCalledWith(data.password);
         expect(createHash).toBeCalledTimes(1);
-    })
-
-    test('input encryptData data must be as testPassword', () => {
         expect(encryptData).toBeCalledWith(testPasswordCipher);
         expect(encryptData).toBeCalledTimes(1);
-    })
-
-    test('input PersonController data must be data.name, data.email, testPasswordHash', () => {
         expect(PersonController.createPerson).toBeCalledWith(
             data.name,
             data.email,
@@ -55,5 +47,4 @@ describe('test handler', () => {
         );
         expect(PersonController.createPerson).toBeCalledTimes(1)
     })
-
 })
