@@ -8,7 +8,8 @@
     "start": "node main.js",
     "dev": "nodemon main.js",
     "migrate": "knex migrate:latest --knexfile ./src/knex/knexfile.js",
-    "compose": "docker-compose up"
+    "compose": "docker-compose up",
+    "makeMigrate": "knex migrate:make projectForJob --knexfile ./src/knex/knexfile.js"
   },
   "repository": {
     "type": "git",

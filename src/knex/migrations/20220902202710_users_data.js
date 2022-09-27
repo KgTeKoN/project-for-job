@@ -1,5 +1,3 @@
-const { onUpdateTrigger, on_updated_timestamp } = require('../knexfile')
-
 exports.up = function(knex) {
   return knex.schema.createTable("users", t => {
       t.increments("id").primary();
