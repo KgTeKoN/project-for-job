@@ -6,4 +6,10 @@ const registration = async (req, res) => {
     res.end();
 }
 
-module.exports = { controllerSignUp: registration }
+const signIn = async (req, res) => {
+    const result = await signInHandler(req.body)
+    res.status(201).json(result);
+    res.end();
+}
+
+module.exports = { controllerSignUp: registration, signIn }
