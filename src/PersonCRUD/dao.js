@@ -11,13 +11,11 @@ class PersonDAO {
         return id;
     }
 
-    async findPerson(email, password) {
-        const [id] = await db('users').where({
-            email: email,
-            password: password
-        }).returning('id');
-
-        return id;
+    async findPerson(email) {
+        const [result] = await db('users').where({
+            email: email
+        }).select('id', 'password');
+        return result;
     }
 }
 

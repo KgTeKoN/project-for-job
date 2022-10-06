@@ -11,9 +11,9 @@ class PersonController {
         }
     }
 
-    async findPerson(email, password) {
+    async findPerson(email) {
         try {
-            const result = await personDAO.findPerson(email, password)
+            const result = await personDAO.findPerson(email)
             return result
         } catch (err) {
             console.log(err.message);
