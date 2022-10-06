@@ -10,6 +10,15 @@ class PersonDAO {
 
         return id;
     }
+
+    async findPerson(email, password) {
+        const [id] = await db('users').where({
+            email: email,
+            password: password
+        }).returning('id');
+
+        return id;
+    }
 }
 
 module.exports = new PersonDAO()

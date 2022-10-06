@@ -10,6 +10,16 @@ class PersonController {
             return err.message;
         }
     }
+
+    async findPerson(email, password) {
+        try {
+            const result = await personDAO.findPerson(email, password)
+            return result
+        } catch (err) {
+            console.log(err.message);
+            return err.message;
+        }
+    }
 }
 
 module.exports = new PersonController();

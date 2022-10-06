@@ -14,16 +14,18 @@ const signUp = async (data) => {
 
 const signIn = async (data) => {
     const { email, password } = data;
-    // resultCompare порівняння паролів
-    if(resultCompare) {
-        const accessToken = await token({email: email, id: id}, accessTokenKey, 60*10);
+    const hash = await createHash(password);
+    const encryptedPassword = await encryptData(hash);
+    const idPerson = await PersonController.findPerson(email, encryptedPassword);
+    if(idPerson) {
+        const accessToken = await token({email: email, id: idPerson}, accessTokenKey, 60*10);
         const refreshToken = await token(data, refreshTokenKey, 60*60);
         return {
             accessToken: accessToken,
             refreshToken: refreshToken
         }
     }
-    return 'Invalid password';
+    return 'Invalid email or password';
 }
 
 module.exports = { signUp, signIn }
