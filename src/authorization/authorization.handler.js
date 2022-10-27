@@ -20,6 +20,7 @@ const signIn = async (data) => {
     if(compareResult) {
         const accessToken = await token({email: email, id: result.id}, accessTokenKey, 60*10);
         const refreshToken = await token(data, refreshTokenKey, 60*60);
+        const hashRefreshToken = await createHash(refreshToken);
         return {
             accessToken: accessToken,
             refreshToken: refreshToken
