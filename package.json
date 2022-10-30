@@ -10,6 +10,7 @@
     "migrate": "knex migrate:latest --knexfile ./src/knex/knexfile.js",
     "compose": "docker-compose up",
     "makeMigrate": "knex migrate:make projectForJob --knexfile ./src/knex/knexfile.js",
+    "makeMigrateAddColumn": "knex migrate:make addRefreshTokenToUsers --knexfile ./src/knex/knexfile.js",
     "migrateRevert": "knex migrate:rollback --knexfile ./src/knex/knexfile.js"
   },
   "repository": {
