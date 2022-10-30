@@ -20,6 +20,16 @@ class PersonController {
             return err.message;
         }
     }
+
+    async updatePerson(id, data, column) {
+        try {
+            const result = await personDAO.updatePerson(id, data, column)
+            return result
+        } catch (err) {
+            console.log(err.message);
+            return err.message;
+        }
+    }
 }
 
 module.exports = new PersonController();

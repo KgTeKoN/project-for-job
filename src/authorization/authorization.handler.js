@@ -21,11 +21,14 @@ const signIn = async (data) => {
         const accessToken = await token({email: email, id: result.id}, accessTokenKey, 60*10);
         const refreshToken = await token(data, refreshTokenKey, 60*60);
         const hashRefreshToken = await createHash(refreshToken);
+        const resultUpdate = await PersonController.updatePerson(result.id, hashRefreshToken, 'refresh_token')
         return {
+            id: resultUpdate.id,
             accessToken: accessToken,
             refreshToken: refreshToken
         }
     }
+
     return 'Invalid email or password';
 }
 
