@@ -1,4 +1,4 @@
-const { signUp } = require('./authorization.handler');
+const { signUp, signIn } = require('./authorization.handler');
 
 const registration = async (req, res) => {
     const result = await signUp(req.body)
@@ -6,4 +6,10 @@ const registration = async (req, res) => {
     res.end();
 }
 
-module.exports = { controllerSignUp: registration }
+const generateToken = async (req, res) => {
+    const result = await signIn(req.body)
+    res.status(201).json(result);
+    res.end();
+}
+
+module.exports = { controllerSignUp: registration, generateToken }
